@@ -6,13 +6,18 @@ const number = document.querySelector("span")
 
 number.innerText = 0
 
+const ADD = "ADD"
+const MINUS = "MINUS"
+
 const countModifier = (state = 0, action) => {
-  if (action.type === "ADD") {
-    return state + 1
-  } else if (action.type === "MINUS") {
-    return state - 1
+  switch (action.type) {
+    case "ADD":
+      return state + 1
+    case "MINUS":
+      return state - 1
+    default:
+      return state
   }
-  return state
 }
 const countStore = createStore(countModifier)
 
@@ -23,10 +28,10 @@ const onChange = () => {
 countStore.subscribe(onChange)
 
 const handlePlus = () => {
-  countStore.dispatch({ type: "ADD" })
+  countStore.dispatch({ type: ADD })
 }
 const handleMinus = () => {
-  countStore.dispatch({ type: "MINUS" })
+  countStore.dispatch({ type: MINUS })
 }
 
 plus.addEventListener("click", handlePlus)
