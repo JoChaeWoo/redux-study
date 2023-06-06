@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 function Home() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('')
   const handleChange = (e) => {
     setText(e.target.value)
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    setText("")
+    setText('')
   }
-  
+
   return (
     <>
       <h1>To Do</h1>
