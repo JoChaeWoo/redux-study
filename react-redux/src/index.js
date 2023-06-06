@@ -5,15 +5,22 @@ import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Detail from './routes/Detail'
 import store from './store'
+import Home from './routes/Home'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
-  },
-  {
-    path: '/:id',
-    element: <Detail />
+    element: <App />,
+    children: [
+      {
+        path: '',
+        element: <Home />
+      },
+      {
+        path: ':id',
+        element: <Detail />
+      }
+    ]
   }
 ])
 
