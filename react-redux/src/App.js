@@ -1,5 +1,7 @@
+import Home from "./routes/Home"
+
 function App() {
-  return "App";
+  return <Home />
 }
 
 export default App;
