@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { actionCreators } from '../store'
+import { remove } from '../store'
 import { Link } from 'react-router-dom'
 
 function Todo({ text, id, onBntClick }) {
@@ -13,7 +13,7 @@ function Todo({ text, id, onBntClick }) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onBntClick: () => dispatch(actionCreators.deleteToDo(ownProps.id)),
+    onBntClick: () => dispatch(remove(ownProps.id)),
     ...ownProps
   }
 }
